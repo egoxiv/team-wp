@@ -21,6 +21,7 @@ You will want to configure MAMP after it is downloaded with these steps:
 
 Now we have to configure the Wordpress app. 
 1. Inside `/MAMP/htdocs/app_dir/wordpress` find `wp-config-sample.php`, we are going to write some code in here. *go to localhost/phpMyAdmin, click on user, and click go.*
+
 2. 
 ```
 // ** MySQL settings - You can get this info from your web host ** //
@@ -63,5 +64,61 @@ Do this:
 ![](https://www.evernote.com/l/AqwjE9Qo3QJKv4ljStAEiuLcTWL3iPxj318)
 
 And then enter all of your sites information!
+
+ ##Creating Child Themes
+
+A child theme consists of at least one directory (the child theme directory) and two files (style.css and functions.php), which you will need to create:
+
+![filder Icon](https://codex.wordpress.org/images/3/3d/child-theme-items.jpeg)
+
+
+- The child theme directory
+- style.css
+- functions.php
+
+---
+
+
+
+###Step 1
+ The first step in creating a child theme is to create the child theme directory, which will be placed in` wp-content/themes`.
+ 
+###Step 2
+
+It is recommended that the name of your child theme directory is appended with `'-child'`. Example  `'twentyfifteen-child'` indicating that the parent theme is the Twenty Fifteen theme.
+
+###Step 3
+
+Add in the following header
+
+```
+/*
+ Theme Name:   Twenty Fifteen Child
+ Theme URI:    http://example.com/twenty-fifteen-child/
+ Description:  Twenty Fifteen Child Theme
+ Author:       John Doe
+ Author URI:   http://example.com
+ Template:     twentyfifteen
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  twenty-fifteen-child
+*/
+```
+
+###Step 4
+
+The final step is to enqueue the parent and child theme stylesheets. 
+
+```
+@import url("../twentysixteen/style.css");
+
+```
+
+###Step 5
+
+Activate it through WorldPress in Appearance => Themes
+
 
 ## You're Done! 
